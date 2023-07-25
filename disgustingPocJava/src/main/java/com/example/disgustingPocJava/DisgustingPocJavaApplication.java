@@ -29,7 +29,7 @@ public class DisgustingPocJavaApplication {
 		
 		DisgustingEvent disgustingEvent = new DisgustingEvent();
 		disgustingEvent.setField1("value1");
-		disgustingEvent.setField1("value2");
+		disgustingEvent.setField2("value2");
 		
 		log.info("Scheduled Test, will produce event '{}'", disgustingEvent);
 		
