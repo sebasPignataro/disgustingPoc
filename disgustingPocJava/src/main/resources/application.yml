@@ -1,0 +1,13 @@
+spring:
+  kafka:
+    properties:
+      schema.registry.url: http://kafka-schema-registry:8081
+    consumer:
+      bootstrap-servers: kafka:29092
+      auto-offset-reset: latest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    producer:
+      bootstrap-servers: kafka:29092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
