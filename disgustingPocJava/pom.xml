@@ -43,6 +43,14 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
+		
+		<!-- Dependencies for AWS Glue Schema Registry -->
+		<dependency>
+    		<groupId>software.amazon.glue</groupId>
+    		<artifactId>schema-registry-serde</artifactId>
+    		<version>1.1.5</version>
+		</dependency>
+		
 	</dependencies>
 
 	<build>
