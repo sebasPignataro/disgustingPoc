@@ -13,9 +13,9 @@ services:
       ZOOKEEPER_TICK_TIME: 2000
       ZOOKEEPER_INIT_LIMIT: 20
       ZOOKEEPER_SYNC_LIMIT: 10
-#    volumes:
-#      - ./volumes/zookeeper/data:/var/lib/zookeeper/data
-#      - ./volumes/zookeeper/datalog:/var/lib/zookeeper/log
+    volumes:
+      - ./volumes/zookeeper/data:/var/lib/zookeeper/data
+      - ./volumes/zookeeper/datalog:/var/lib/zookeeper/log
 ######################################
 # Kafka
 ######################################
@@ -46,8 +46,8 @@ services:
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
       CONFLUENT_METRICS_ENABLE: 'true'
       CONFLUENT_SUPPORT_CUSTOMER_ID: anonymous
-#    volumes:
-#      - ./volumes/kafka/data:/var/lib/kafka/data
+    volumes:
+      - ./volumes/kafka/data:/var/lib/kafka/data
 ######################################
 # Kafka Schema Registry
 ######################################
@@ -55,6 +55,7 @@ services:
     image: confluentinc/cp-schema-registry:6.0.0
     hostname: kafka-schema-registry
     depends_on:
+      - zookeeper
       - kafka
     ports:
       - "8081:8081"
@@ -75,7 +76,6 @@ services:
     ports:
       - "35000:8080"
     tty: true
-#    volumes:
-#      - ./volumes/qr-email-core/config:/config:z
-#      - ./volumes/qr-email-core/logs:/logs:z
-#      - ./volumes/qr-email-core/templates:/templates:z
+    volumes:
+      - ./volumes/disgusting-poc-java/config:/config:z
+      - ./volumes/disgusting-poc-java/logs:/logs:z
