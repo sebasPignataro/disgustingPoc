@@ -10,8 +10,27 @@ spring:
       auto-offset-reset: latest
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
+    # Specific AWS conf
+      region: us-east-2
+      avroRecordType: org.apache.avro.generic.GenericRecord
+      timeToLiveMillis: 86400000 #24 HS
+      cacheSize: 300
+    # END OF Specific AWS Conf
     producer:
       bootstrap-servers: kafka:29092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+    # Specific AWS conf
+      region: us-east-2
+      dataFormat: AVRO
+      schemaAutoRegistrationEnabled: true
+      schemaName: disgusting-poc-schema
+      registry:
+        name:  disgusting-poc-registry
+      timeToLiveMillis: 86400000 #24 HS
+      cacheSize: 300
+      compatibility: FULL
+      description: This registry is used for this DISGUSTING POC 
+      compression: ZLIB
+    # END OF Specific AWS Conf
 
